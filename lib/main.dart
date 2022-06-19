@@ -38,6 +38,9 @@ class Quizzler extends StatelessWidget {
  }
 
  class _QuizPageState extends State<QuizPage> {
+  List<Icon> scoreKeeper = [
+   
+  ];
    @override
    Widget build(BuildContext context) {
      return Column(
@@ -74,7 +77,12 @@ class Quizzler extends StatelessWidget {
                    ),
                  ),
                  onPressed: () {
-                   //The user picked true.
+                   setState(() {
+                     scoreKeeper.add(
+                         Icon(Icons.check,color: Colors.green,)
+                     );
+                   });
+
                  },
                ),
              ),
@@ -97,6 +105,9 @@ class Quizzler extends StatelessWidget {
                ),
              ),
            ),
+           Row(
+             children: scoreKeeper,
+           )
          ]
      );
    }
